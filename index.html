@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B2B Pool Party</title>
+<style>
+html,body{height:100%;margin:0;}
+#iframeWrapper{display:none;height:100%;}
+iframe{border:0;width:100%;height:100%;}
+</style>
+</head>
+<body>
+<div id="password-screen" style="position:fixed;inset:0;background:black;color:white;z-index:999999;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-family:Impact,sans-serif;">
+<h1 style="font-size:4rem;">🦅🔒 ONLY TRUE PATRIOTS MAY ENTER 🔒🦅</h1>
+<p style="font-size:2rem;">Enter the secret password to witness the greatest B2B performance in history.</p>
+<input type="password" id="password-input" placeholder="Enter Password" style="padding:15px;font-size:1.5rem;text-align:center;margin:20px;">
+<button onclick="checkPassword()" style="padding:15px 30px;font-size:1.5rem;cursor:pointer;">ENTER</button>
+<p id="error-message" style="color:red;font-size:1.5rem;"></p>
+</div>
+
+<div id="iframeWrapper">
+<iframe id="party" src="b2b_pool_party_max_chaos.html"></iframe>
+</div>
+
+<script>
+function unlock(){
+ document.getElementById("password-screen").style.display="none";
+ document.getElementById("iframeWrapper").style.display="block";
+}
+function checkPassword(){
+ const password=document.getElementById("password-input").value.toLowerCase().trim();
+ if(password==="bobby im beating"){ unlock(); } else {
+   document.getElementById("error-message").innerText="🦅 ACCESS DENIED. THE EAGLES HAVE REJECTED YOU. 🦅";
+ }
+}
+document.getElementById("password-input").addEventListener("keypress",function(event){
+ if(event.key==="Enter"){checkPassword();}
+});
+</script>
+</body>
+</html>

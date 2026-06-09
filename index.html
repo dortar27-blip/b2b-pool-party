@@ -21,20 +21,33 @@ iframe{border:0;width:100%;height:100%;}
 </div>
 
 <div id="iframeWrapper">
-<iframe id="party" src="b2b_pool_party_max_chaos.html"></iframe>
+<iframe id="party"></iframe>
 </div>
 
 <script>
 function unlock(){
+ const iframe=document.getElementById("party");
+ if(!iframe.src){
+   iframe.src="b2b_pool_party_max_chaos.html";
+ }
  document.getElementById("password-screen").style.display="none";
  document.getElementById("iframeWrapper").style.display="block";
 }
+
 function checkPassword(){
  const password=document.getElementById("password-input").value.toLowerCase().trim();
- if(password==="bobby im beating"){ unlock(); } else {
-   document.getElementById("error-message").innerText="🦅 ACCESS DENIED. THE EAGLES HAVE REJECTED YOU. 🦅";
+ if(password==="bobby im beating"){
+  unlock();
+ } else {
+  document.getElementById("error-message").innerText="🦅 ACCESS DENIED. THE EAGLES HAVE REJECTED YOU. 🦅";
  }
 }
+
+function showPassword(){
+ const input=document.getElementById("password-input");
+ input.type = input.type === "password" ? "text" : "password";
+}
+
 document.getElementById("password-input").addEventListener("keypress",function(event){
  if(event.key==="Enter"){checkPassword();}
 });
